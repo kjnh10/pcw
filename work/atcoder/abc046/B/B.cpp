@@ -23,15 +23,12 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
-  int N,K,X,Y, res;
-  cin >> N >> K >> X >> Y;
+  int n,k;
+  int res=1;
+  cin >> n >> k;
 
-  if (N >= K+1){
-    res = (X*K) + (N-K)*Y;
-  }
-  else{
-    res = (X*N);
-  }
+  res *= k;
+  res *= pow(k-1, n-1);
 
   cout << res << endl;
 

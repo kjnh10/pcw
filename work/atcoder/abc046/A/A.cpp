@@ -23,17 +23,18 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
-  int N,K,X,Y, res;
-  cin >> N >> K >> X >> Y;
+  int a,b,c;
+  cin >> a >> b >> c;
 
-  if (N >= K+1){
-    res = (X*K) + (N-K)*Y;
+  if (a==b and b==c){
+    cout << 1 << endl;
+  }
+  else if(a==b or b==c or c==a){
+    cout << 2 << endl;
   }
   else{
-    res = (X*N);
+    cout << 3 << endl;
   }
-
-  cout << res << endl;
 
   return 0;
 }

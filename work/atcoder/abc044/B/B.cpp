@@ -23,4 +23,22 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  string w;
+  int c[30]={};
+  cin >> w;
+
+  REP(i, w.size()){
+    c[w[i]-'a'] += 1;
+  }
+
+  REP(i, 30){
+    if(c[i]%2 != 0){
+      cout << "No" << endl;
+      return 0;
+    }
+  }
+
+  cout << "Yes" << endl;
+
+  return 0;
 }
