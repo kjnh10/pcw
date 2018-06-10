@@ -23,6 +23,11 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+  string s;
+
+  cin >> s;
+  int x = s.size() - 2;
+  cout << s[0] <<  x <<  s[s.size()-1] << endl;
 
   return 0;
 }

@@ -23,6 +23,14 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+  string s;
+  cin >> s;
+  int res=0;
+  if(s[0]=='o') ++res;
+  if(s[1]=='o') ++res;
+  if(s[2]=='o') ++res;
+
+  cout << 700 + res*100 << endl;
 
   return 0;
 }

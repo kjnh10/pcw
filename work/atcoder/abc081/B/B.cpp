@@ -23,6 +23,32 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+  int N;
+  int A[210];
+
+  cin >> N;
+  REP(i, N){
+    cin >> A[i];
+  }
+
+  int res = 0;
+  while (true){
+    bool f=false;
+    REP(i,N){
+      if (A[i]%2==0){
+        A[i]  /= 2;
+      }
+      else{
+        f=true;
+      }
+    }
+    if (f){
+      break;
+    }
+    ++res;
+  }
+
+  cout << res << endl;
 
   return 0;
 }

@@ -23,6 +23,10 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+  int a,b,x;
+  cin >>a >>b;
+  x=a+b;
+  cout << (x+2-1)/2 << endl;
 
   return 0;
 }

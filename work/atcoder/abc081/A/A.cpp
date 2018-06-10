@@ -23,6 +23,15 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+  string s;
+  cin >> s;
+  int counter=0;
+  if(s[0]=='1')++counter;
+  if(s[1]=='1')++counter;
+  if(s[2]=='1')++counter;
+
+  cout << counter << endl;
+
 
   return 0;
 }
