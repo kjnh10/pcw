@@ -23,6 +23,21 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+  int a,b,c,x;
+  cin>>a>>b>>c>>x;
+
+  int res=0;
+  REP(i,a+1){
+    REP(j,b+1){
+      REP(k,c+1){
+        if ((i*500) + (j*100) + (k+50)==x){
+          ++res;
+        }
+      }
+    }
+  }
+
+  cout<<res<<endl;
 
   return 0;
 }
