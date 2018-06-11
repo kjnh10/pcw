@@ -20,9 +20,33 @@ typedef pair<int, int> pii;
 int dy[]={0, 0, 1, -1, 0};
 int dx[]={1, -1, 0, 0, 0};/*}}}*/
 
+int sum_digit(int n, int b){
+  int res = 0;
+  while(true){
+    res += n%b;
+    n /= b;
+    if (n==0)break;
+  }
+  return res;
+}
+
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+
+  int n,a,b;
+  cin>>n>>a>>b;
+
+  int count=0;
+  REPS(i, n){
+    // if (a<=sum_digit(i, 10)<=b){
+    int c = sum_digit(i, 10);
+    if (a<=c and c<=b){
+      count+=i;
+    }
+  }
+
+  cout << count << endl;
 
   return 0;
 }

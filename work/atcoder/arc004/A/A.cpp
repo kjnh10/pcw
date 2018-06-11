@@ -24,5 +24,22 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  int n;
+  cin >> n;
+  int x[n], y[n];
+
+  FOR(i, 0, n){cin >> x[i] >> y[i];}
+
+  double tmp;
+  double res=0;
+  FOR(i, 0, n){
+    FOR(j, 0, n){
+      tmp = sqrt(pow((x[i] - x[j]),2) + pow((y[i]-y[j]),2));
+      res = max(res, tmp);
+    }
+  }
+
+  cout << res << endl;
+
   return 0;
 }

@@ -23,14 +23,6 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-  int h,w;
-  cin >> h >> w;
-  string s;
-  REP(i, h){
-    cin >> s;
-    cout << s << endl;
-    cout << s << endl;
-  }
 
   return 0;
 }

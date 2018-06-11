@@ -24,5 +24,13 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  string s;
+  cin >> s;
+
+  FOR(i, 0, s.size()){
+    if(i%2==0) cout << s[i];
+  }
+  cout << endl;
+
   return 0;
 }

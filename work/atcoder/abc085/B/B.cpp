@@ -24,5 +24,16 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  int n;
+  int d[n];
+  set<int> s;
+  cin >> n;
+  FOR(i,0,n) cin >> d[i];
+  FOR(i,0,n) s.insert(d[i]);
+
+  cout << s.size() << endl;
+
+
+
   return 0;
 }

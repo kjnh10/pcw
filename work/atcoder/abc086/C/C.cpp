@@ -24,5 +24,29 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  int n;
+  cin >> n;
+  int t[n+1], x[n+1], y[n+1];
+  t[0] = 0; x[0] = 0; y[0] = 0;
+  debug(n);
+  REPS(i, n){
+    debug(i);
+    cin >> t[i] >> x[i] >> y[i];
+  }
+
+  int diff;
+  REPS(i, n){
+    diff = 0;
+
+    diff += abs(x[i] - x[i-1]);
+    diff += abs(y[i] - y[i-1]);
+    debug(diff);
+    if (diff > abs(t[i]-t[i-1]) or (abs(t[i]-t[i-1])-diff)%2!=0){
+      puts("No");
+      return 0;
+    }
+  }
+  puts("Yes");
+
   return 0;
 }
