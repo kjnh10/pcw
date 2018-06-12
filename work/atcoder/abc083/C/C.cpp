@@ -24,5 +24,21 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  ll x,y;
+  cin >> x >> y;
+
+  ll z = y/x;
+  int res = 0;
+  while (true){
+    if (z==1){
+      break;
+    }
+
+    z >>= 1;
+    res += 1;
+  }
+
+  cout << res + 1 << endl;
+
   return 0;
 }
