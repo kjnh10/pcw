@@ -24,5 +24,23 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  int n;
+  int a[101]={};
+  cin >> n;
+  REP(i,n)cin>>a[i];
+
+  sort(a, a+n, greater<int>());
+  int alice=0;
+  int bob=0;
+  REP(i,n){
+    if (i%2==0){
+      alice += a[i];
+    }
+    else{
+      bob += a[i];
+    }
+  }
+  cout << alice - bob << endl;
+
   return 0;
 }

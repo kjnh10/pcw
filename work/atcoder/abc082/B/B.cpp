@@ -26,5 +26,12 @@ int main() {
   string s,t;
   cin >> s >> t;
 
+  sort(ALL(s));
+  sort(ALL(t));
+  reverse(ALL(t));
+
+  if (s<t){cout << "Yes" << endl;}
+  else{cout <<"No"<< endl;}
+
   return 0;
 }

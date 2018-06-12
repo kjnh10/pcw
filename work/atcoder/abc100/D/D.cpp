@@ -48,10 +48,12 @@ ll x[1001];
 ll y[1001];
 ll z[1001];
 
-ll f(int n, int m, ll p, ll q, ll r){
+ll f(int mask){
   ll tmp[n];
   rep(i, n){
-    tmp[i] = p*x[i] + q*y[i] + r*z[i];
+    tmp[i] = x[i] * ((mask & 1)?1:-1);
+    tmp[i] += y[i] * ((mask & 2)?1:-1);
+    tmp[i] += z[i] * ((mask & 4)?1:-1);
   }
   sort(tmp, tmp+n, greater<ll>());
 
@@ -75,14 +77,9 @@ int main() {
   }
 
   ll res = 0;
-  res = max(f(n,m,1,1,1), res);
-  res = max(f(n,m,1,1,-1), res);
-  res = max(f(n,m,1,-1,1), res);
-  res = max(f(n,m,1,-1,-1), res);
-  res = max(f(n,m,-1,1,1), res);
-  res = max(f(n,m,-1,1,-1), res);
-  res = max(f(n,m,-1,-1,1), res);
-  res = max(f(n,m,-1,-1,-1), res);
+  rep(mask, 1<<3){
+    res = max(f(mask), res);
+  }
 
   cout << res << endl;
 
