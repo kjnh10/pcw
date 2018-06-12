@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #include <iostream>
+=======
+#include <iostream>/*{{{*/
+#include <bits/stdc++.h>
+>>>>>>> 3382db706bcb841957cc44f44217372cb872087e
 #define REP(i, x) for(int i = 0; i < (int)(x); i++)
 #define REPS(i,x) for(int i = 1; i <= (int)(x); i++)
 #define RREP(i,x) for(int i=((int)(x)-1);i>=0;i--)
@@ -16,12 +21,17 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 int dy[]={0, 0, 1, -1, 0};
+<<<<<<< HEAD
 int dx[]={1, -1, 0, 0, 0};
+=======
+int dx[]={1, -1, 0, 0, 0};/*}}}*/
+>>>>>>> 3382db706bcb841957cc44f44217372cb872087e
 
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+<<<<<<< HEAD
   int N;
   int res=0;
   cin >> N;
@@ -29,4 +39,6 @@ int main() {
     res += i;
   }
   cout << res << '\n';
+=======
+>>>>>>> 3382db706bcb841957cc44f44217372cb872087e
 }

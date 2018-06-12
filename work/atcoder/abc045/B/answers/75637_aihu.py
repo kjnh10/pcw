@@ -1,0 +1,22 @@
+a=list(input())
+b=list(input())
+c=list(input())
+s=a.pop(0)
+w=''
+while True:
+    if(s=='a'):
+        if(len(a)==0):
+            w='A'
+            break
+        s=a.pop(0)
+    elif(s=='b'):
+        if(len(b)==0):
+            w='B'
+            break
+        s=b.pop(0)
+    else:
+        if(len(c)==0):
+            w='C'
+            break
+        s=c.pop(0)
+print(w)

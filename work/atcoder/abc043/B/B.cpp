@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #include <iostream>  /*{{{*/
+=======
+#include <iostream>/*{{{*/
+>>>>>>> 3382db706bcb841957cc44f44217372cb872087e
 #include <bits/stdc++.h>
 #define REP(i, x) for(int i = 0; i < (int)(x); i++)
 #define REPS(i,x) for(int i = 1; i <= (int)(x); i++)
@@ -24,6 +28,7 @@ int main() {
   ios::sync_with_stdio(false);
 
   string s;
+<<<<<<< HEAD
   string res="";
   cin >> s;
   REP(i, s.size()){
@@ -33,3 +38,19 @@ int main() {
   }
   cout << res << '\n';
 }
+=======
+  string res;
+  cin >> s;
+
+  REP(i, s.size()){
+    if(s[i] == '0') res.push_back('0');
+    if(s[i] == '1') res.push_back('1');
+    if(s[i] == 'B' and !res.empty()) res.pop_back();
+  }
+  cout << res << endl;
+  
+
+  return 0;
+}
+
+>>>>>>> 3382db706bcb841957cc44f44217372cb872087e
