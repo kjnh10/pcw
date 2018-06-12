@@ -1,0 +1,5 @@
+N,Z,W=map(int,input().split())
+A=list(map(int,input().split()))
+ans1=abs(A[N-1]-W)
+ans2=abs(A[N-1]-A[N-2])
+print(max(ans1,ans2))

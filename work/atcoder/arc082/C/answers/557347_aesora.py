@@ -1,0 +1,17 @@
+# coding: utf-8
+
+import collections
+
+def main():
+    N = int(input())
+    a = map(int, input().split())
+
+    c = collections.Counter()
+    for i in a:
+        c[i] += 1
+        c[i-1] += 1
+        c[i+1] += 1
+    return c.most_common(1)[0][1]
+
+
+print(main())

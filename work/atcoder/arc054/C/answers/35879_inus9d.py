@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def solve():
+
+    L,X,Y,S,D = map(int,input().split())
+    
+    
+    d1 = D - S
+    if d1 < 0:
+        d1 += L
+    t1 = d1 / (X + Y)
+    
+    if Y <= X:
+        return t1
+
+    d2 = S - D
+    if d2 < 0:
+        d2 += L
+    t2 = d2 / (Y - X)
+
+    return min(t1, t2)
+
+ans = solve()
+print("{:.15f}".format(ans))
