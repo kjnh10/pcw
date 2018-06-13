@@ -24,5 +24,35 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  string s;
+  cin >> s;
+  string t[4] = {"dream", "dreamer", "erase", "eraser"};
+
+  reverse(ALL(s));
+  FOR(i, 0, 4) reverse(ALL(t[i]));
+
+  int i = 0;
+  while (true){
+    bool found2 = false;
+    FOR(j, 0, 4){
+      if(s.substr(i, t[j].size()) == t[j]){
+        i += t[j].size();
+        found2 = true;
+        break;
+      }
+    }
+    debug(i);
+    debug(s.size());
+    debug(found2);
+    if (!found2){
+      cout << "NO" << endl;
+      return 0;
+    }
+    else if(i==s.size()){
+      cout << "YES" << endl;
+      return 0;
+    }
+  }
+
   return 0;
 }

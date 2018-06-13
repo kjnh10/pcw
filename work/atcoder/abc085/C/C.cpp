@@ -24,5 +24,25 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  int y,n;
+
+  cin >> n >> y;
+
+  FOR(i, 0, n+1){
+    FOR(j, 0, n+1){
+      if(i+j>n){
+        continue;
+      }
+      else{
+        if(i*10000 + j*5000 + (n-i-j)*1000 == y){
+          cout << i << " " << j << " " << n-i-j << endl;
+          return 0;
+        }
+      }
+    }
+  }
+  cout << "-1 -1 -1" << endl;
+
+
   return 0;
 }
