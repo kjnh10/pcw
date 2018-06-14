@@ -24,5 +24,22 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  string s;
+  cin >> s;
+
+  set<int> w;
+  FOR(i, 0, s.size()){
+    if (w.count(s[i]) == 0){
+      w.insert(s[i]);
+    }
+    else{
+      cout << "no" << endl;
+      return 0;
+    }
+  }
+  cout << "yes" << endl;
+  // cout << (w.size()==1)?"yes":"no"; << endl;
+  //
+
   return 0;
 }

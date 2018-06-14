@@ -24,5 +24,18 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  string s;
+  cin >> s;
+
+  int l, r;
+  l = s.size()+2;
+
+  FOR(i, 0, s.size()){
+    if (s[i]=='A') l=min(l, i);
+    if (s[i]=='Z') r=i;
+  }
+
+  cout << r-l+1 << endl;
+
   return 0;
 }

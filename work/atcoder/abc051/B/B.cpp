@@ -1,9 +1,9 @@
 #include <iostream>/*{{{*/
 #include <bits/stdc++.h>
-#define REP(i, x) for(int i = 0; i < (int)(x); i++)
-#define REPS(i,x) for(int i = 1; i <= (int)(x); i++)
-#define RREP(i,x) for(int i=((int)(x)-1);i>=0;i--)
-#define RREPS(i,x) for(int i=((int)(x));i>0;i--)
+#define rep(i, x) for(int i = 0; i < (int)(x); i++)
+#define reps(i,x) for(int i = 1; i <= (int)(x); i++)
+#define rrep(i,x) for(int i=((int)(x)-1);i>=0;i--)
+#define rreps(i,x) for(int i=((int)(x));i>0;i--)
 #define FOR(i, m, n) for(int i = m;i < n;i++)
 #define RFOR(i, m, n) for(int i = m;i >= n;i--)
 #define ALL(x) (x).begin(),(x).end()
@@ -23,6 +23,20 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+
+  int k,s;
+  cin >> k >> s;
+
+  int c = 0;
+  rep(i,k+1){
+    rep(j,k+1){
+      if ((s-i-j)<=k){
+        c += 1;
+      }
+    }
+  }
+  cout << c << endl;
+
 
   return 0;
 }

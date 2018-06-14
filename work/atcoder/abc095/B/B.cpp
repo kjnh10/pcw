@@ -24,5 +24,20 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  int n,x;
+  cin >> n >> x;
+  int m[n];
+
+  int c = 0;
+  int minimum = 1000000;
+  FOR(i, 0, n){
+    cin >> m[i];
+    x -= m[i];
+    c += 1;
+    minimum = min(minimum, m[i]);
+  }
+
+  cout << c + (x/minimum) << endl;
+
   return 0;
 }

@@ -24,5 +24,18 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  int n;
+  cin >> n;
+
+  int l, r, res;
+  res = 0;
+
+  FOR(i, 0, n){
+    cin >> l >> r;
+    res += r-l+1;
+  }
+
+  cout << res << endl;
+
   return 0;
 }
