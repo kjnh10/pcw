@@ -123,4 +123,5 @@ venv.bak/
 .mypy_cache/
 
 .idea
-.out
+**/*.out
+*/answers/
