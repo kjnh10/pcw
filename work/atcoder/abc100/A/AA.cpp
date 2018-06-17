@@ -16,7 +16,8 @@ using namespace std;
 // http://www.creativ.xyz/dump-cpp-652
 #define DUMPOUT cerr // 変数ダンプ先。coutかcerr
  
-#define DEBUG_ // 提出時はコメントアウト
+// #define DEBUG_ // 提出時はコメントアウト
+
 #ifdef DEBUG_
 #define DEB
 #else
@@ -87,19 +88,6 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
-
-  ll n;
-  cin>>n;
-
-  double m=ceil(sqrt(n));
-  ll res = 12;
-  reps(i,(ll)(m)){
-    if(n%i==0){
-      res = min((ll)(log10(n/i))+1, res);
-    }
-  }
-
-  cout << res << endl;
 
   return 0;
 }
