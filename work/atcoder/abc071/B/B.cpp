@@ -42,7 +42,7 @@ int main() {
 
   string s;
   cin >> s;
-  int d['z'-'a']={};
+  int d['z'-'a'+1]={};
   debug(int('a'));
   debug(int('A'));
   debug(char(92));

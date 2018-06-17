@@ -1,6 +1,6 @@
 #include <iostream>/*{{{*/
 #include <bits/stdc++.h>
-#define REP(i, x) for(int i = 0; i < (int)(x); i++)
+#define rep(i, x) for(int i = 0; i < (int)(x); i++)
 #define REPS(i,x) for(int i = 1; i <= (int)(x); i++)
 #define RREP(i,x) for(int i=((int)(x)-1);i>=0;i--)
 #define RREPS(i,x) for(int i=((int)(x));i>0;i--)
@@ -23,6 +23,20 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+
+  int n, m;
+  cin >> n >> m;
+  int d[n] = {};
+  rep(i, m){
+    int tmp;
+    cin>>tmp;
+    d[tmp-1] += 1;
+    cin>>tmp;
+    d[tmp-1] += 1;
+  }
+  rep(i,n){
+    cout << d[i] << endl;
+  }
 
   return 0;
 }

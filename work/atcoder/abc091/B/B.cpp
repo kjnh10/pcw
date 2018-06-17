@@ -1,6 +1,6 @@
 #include <iostream>/*{{{*/
 #include <bits/stdc++.h>
-#define REP(i, x) for(int i = 0; i < (int)(x); i++)
+#define rep(i, x) for(int i = 0; i < (int)(x); i++)
 #define REPS(i,x) for(int i = 1; i <= (int)(x); i++)
 #define RREP(i,x) for(int i=((int)(x)-1);i>=0;i--)
 #define RREPS(i,x) for(int i=((int)(x));i>0;i--)
@@ -23,6 +23,29 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+
+  map<string, int> c={};
+  int n;cin>>n;
+  rep(i,n){
+    string s;
+    cin >> s;
+    c[s] += 1;
+  }
+
+  int m;cin>>m;
+  rep(i,m){
+    string s;
+    cin >> s;
+    c[s] -= 1;
+  }
+
+  int M = 0;
+  for(auto x: c){
+    M = max(x.second, M);
+  }
+
+  cout << M << endl;
+
 
   return 0;
 }
