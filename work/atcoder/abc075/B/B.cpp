@@ -1,6 +1,6 @@
 #include <iostream>/*{{{*/
 #include <bits/stdc++.h>
-#define REP(i, x) for(int i = 0; i < (int)(x); i++)
+#define rep(i, x) for(int i = 0; i < (int)(x); i++)
 #define REPS(i,x) for(int i = 1; i <= (int)(x); i++)
 #define RREP(i,x) for(int i=((int)(x)-1);i>=0;i--)
 #define RREPS(i,x) for(int i=((int)(x));i>0;i--)
@@ -23,6 +23,31 @@ int dx[]={1, -1, 0, 0, 0};/*}}}*/
 int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
+
+  int h,w;cin>>h>>w;
+  string s[h+2];
+
+  FOR(i, 1, h+1){
+    string tmp;
+    cin>>tmp;
+    s[i] = "." + tmp + ".";
+  }
+
+  FOR(i,1,h+1){
+    FOR(j,1,w+1){
+      int count = 0;
+      if (s[i][j] == '.'){
+        for(auto p:{-1,0,1}){
+          for(auto q:{-1,0,1}){
+            if (s[i+p][j+q]=='#') count++;
+          }
+        }
+        s[i][j] = '0'+count;
+      }
+    }
+  }
+
+  FOR(i, 1, h+1){cout << s[i].substr(1, w) << endl;}
 
   return 0;
 }
