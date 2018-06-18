@@ -91,7 +91,7 @@ int main() {
   int a,b,c,d,e,f;
   cin>>a>>b>>c>>d>>e>>f;
 
-  double M = 0;
+  double M = -1;
   int p,q;
   rep(i,30){
     rep(j,30){
@@ -103,7 +103,7 @@ int main() {
           double dct = (double)s/(w+s);
           // dump(i,j,k,w,s,dct);
           if (dct > M and dct*100 <= e){
-            // dump(dct,M,e);
+            dump(dct,M,e);
             M = max(dct, M);
             p = w+s;
             q = s;
