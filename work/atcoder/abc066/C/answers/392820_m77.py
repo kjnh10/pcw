@@ -1,0 +1,22 @@
+import math
+
+
+def f():
+    n = int(input())
+    a = list(map(int, input().split(" ")))
+    b = []
+    c = []
+    for i in range(len(a)):
+        if i % 2 == 0:
+            b.append(a[i])
+        else:
+            c.append(a[i])
+    c.reverse()
+    d = c+b
+    if n % 2 == 1:
+        d.reverse()
+    d = list(map(str,d))
+    print(" ".join(d))
+
+
+f()

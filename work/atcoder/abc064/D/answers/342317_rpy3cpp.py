@@ -1,0 +1,19 @@
+N = int(input())
+S = input().rstrip()
+
+def solve(N, S):
+    n_close = 0
+    max_n_close = 0
+    for s in S:
+        if s == ')':
+            n_close += 1
+            max_n_close = max(max_n_close, n_close)
+        if s == '(':
+            n_close -= 1
+    SS = '(' * max_n_close + S
+    n_open = SS.count('(')
+    n_close = SS.count(')')
+    SSS = SS + ')' * (n_open - n_close)
+    return SSS
+
+print(solve(N, S))

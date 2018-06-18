@@ -1,0 +1,5 @@
+a = list(map(int, input().split()))
+ans = max(a)*(2**int(input()))
+ans += sum(a)
+ans -= max(a)
+print(ans)
