@@ -88,5 +88,28 @@ int main() {
   cin.tie(0);
   ios::sync_with_stdio(false);
 
+  int h,w;
+  cin>>h>>w;
+
+  string s[h+2];
+  string tmp;
+  FOR(i,1,h+1){cin>>tmp;s[i] = "." + tmp + ".";}
+  FOR(i,1,h+1){
+    FOR(j,1,w+1){
+      if (s[i][j]=='.')continue;
+      if (s[i][j]=='#'){
+        int c = 0;
+        for(auto x:{-1,0,1}){
+          for(auto y:{-1,0,1}){
+            if (abs(x)+abs(y)==1 and s[i+x][j+y]=='#')c++;
+          }
+        }
+        if (c!=0)continue;
+        else {cout << "No" << endl; return 0;}
+      }
+    }
+  }
+  cout << "Yes" << endl;
+
   return 0;
 }

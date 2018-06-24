@@ -1,0 +1,28 @@
+from collections import defaultdict
+from itertools import permutations
+
+def main():
+    N, M = map(int, input().split())
+    g = defaultdict(list)
+    for _ in range(M):
+        a, b = map(int, input().split())
+        g[a].append(b)
+        g[b].append(a)
+
+    ans = 0
+    for route in permutations(range(2, N + 1), N - 1):
+        ok = True
+        now = 1
+        for r in route:
+            if r in g[now]:
+                now = r
+            else:
+                ok = False
+        if ok:
+            ans += 1
+
+    print(ans)
+
+
+if __name__ == '__main__':
+    main()
