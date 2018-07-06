@@ -1,62 +1,176 @@
-#include <iostream>/*{{{*/
+using namespace std;
+#include <iostream>
 #include <bits/stdc++.h>
-#define rep(i, x) for(int i = 0; i < (int)(x); i++)
+
+#define ten(n) ((int)1e##n)
+#define uni(x) x.erase(unique(all(x)),x.end())
+// n次元配列の初期化。第２引数の型のサイズごとに初期化していく。
+template<typename A, size_t N, typename T>
+void Fill(A (&array)[N], const T &val){
+    std::fill( (T*)array, (T*)(array+N), val );
+}
+
+// dump macro{{{
+// http://www.creativ.xyz/dump-cpp-652
+#define DUMPOUT cerr // 変数ダンプ先。coutかcerr
+
+#ifdef PCM
+// 引数はいくつでもどんな型でも可（ストリーム出力演算子があればOK）
+#define dump(...) DUMPOUT<<"  "; \
+  DUMPOUT<<#__VA_ARGS__; \
+  DUMPOUT<<":=> "; \
+  dump_func(__VA_ARGS__); DUMPOUT<<"in ["<<__LINE__<<":"<<__FUNCTION__<<"]"<<endl;
+#define dump_1d(x,n) DUMPOUT <<"  " \
+  <<#x<<"["<<#n<<"]"<<":=> {"; \
+  rep(i,n){ DUMPOUT << x[i] << (((i)==(n-1))?"}":", "); } DUMPOUT <<" in [" << __LINE__ << "]" << endl;
+
+#define dump_2d(x,n,m) DUMPOUT <<"  " \
+    <<#x<<"["<<#n<<"]"<<"["<<#m<<"]"<<":=> \n"; \
+    rep(i,n)rep(j,m){ DUMPOUT << ((j==0)?"     |":" ") << x[i][j] << (((j)==(m-1))?"|\n":" "); } \
+    DUMPOUT <<"  in [" << __LINE__ << "]" << endl;
+#else
+#define dump(...) 42
+#define dump_1d(...) 42
+#define dump_2d(...) 42
+#endif
+
+// デバッグ用変数ダンプ関数
+void dump_func() {
+}
+template <class Head, class... Tail>
+void dump_func(Head&& head, Tail&&... tail)
+{
+    DUMPOUT << head;
+    if (sizeof...(Tail) == 0) {
+        DUMPOUT << " ";
+    }
+    else {
+        DUMPOUT << ", ";
+    }
+    dump_func(std::move(tail)...);
+}
+
+// vector出力
+template<typename T>
+ostream& operator << (ostream& os, vector<T>& vec) {
+    os << "{";
+    for (int i = 0; i<vec.size(); i++) {
+        os << vec[i] << (i + 1 == vec.size() ? "" : ", ");
+    }
+    os << "}";
+    return os;
+}/*}}}*/
+
+#define rep(i, x) for(int i = 0; i < (int)(x); i++)/*{{{*/
 #define reps(i,x) for(int i = 1; i <= (int)(x); i++)
 #define rrep(i,x) for(int i=((int)(x)-1);i>=0;i--)
 #define rreps(i,x) for(int i=((int)(x));i>0;i--)
 #define FOR(i, m, n) for(int i = m;i < n;i++)
 #define RFOR(i, m, n) for(int i = m;i >= n;i--)
-#define ALL(x) (x).begin(),(x).end()
-#define SZ(x) ((int)(x).size())
-#define FILL(x,y) memset(x,y,sizeof(x))
-#define SORT(v, n) sort(v, v+n);
-#define VSORT(v) sort(v.begin(), v.end());
+#define foreach(x,a) for(auto& (x) : (a) )
+#define all(x) (x).begin(),(x).end()
+#define sum(v) accumulate(all(v), 0)
+#define sz(x) ((int)(x).size())
+#define fill(x,y) memset(x,y,sizeof(x))
 #define pb(a) push_back(a)
-#define debug(x) cerr << __LINE__ << ": " << #x << " -> " << x << '\n'
-#define INF 999999999
-using namespace std;
+#define INF 2147483647
+#define INFLL 1000000000000000000LL
+#define MOD 1000000007/*}}}*/
+
+struct Fast {Fast(){std::cin.tie(0);ios::sync_with_stdio(false);}} fast;/*{{{*/
 typedef long long ll;
-typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<long long> vll;
+typedef vector<vll> vvll;
+typedef long double ld;
+typedef pair<int,int> pii;
+typedef vector<pii> vii;
+typedef vector<vii> vvii;
+typedef tuple<int,int,int> iii;
+typedef set<int> si;
+typedef complex<double> pnt;
+typedef vector<pnt> vpnt;
+typedef priority_queue<pii,vii,greater<pii> > spq;
 int dy[]={0, 0, 1, -1, 0};
-int dx[]={1, -1, 0, 0, 0};/*}}}*/
+int dx[]={1, -1, 0, 0, 0};
+
+/*}}}*/
+
+//--------------------------------------------------------------------------
+
+ll n,s,t;
+vector<ll> x,y;
+
+// binary_search
+bool isOK(int index, int key) {
+    if (y[index] + key > t) return true;
+    else return false;
+}
+int binary_search(int key) {
+    int ng = -1; //「index = 0」が条件を満たすこともあるので、初期値は -1
+    int ok = (int)y.size(); // 「index = a.size()-1」が条件を満たさないこともあるので、初期値は a.size()
+
+    /* ok と ng のどちらが大きいかわからないことを考慮 */
+    while (abs(ok - ng) > 1) {
+        int mid = (ok + ng) / 2;
+
+        if (isOK(mid, key)) ok = mid;
+        else ng = mid;
+    }
+    return ok;
+}
 
 int main() {
-  cin.tie(0);
-  ios::sync_with_stdio(false);
+  cin>>n>>s>>t;
 
-  int n;
-  cin >> n;
-  string s;
-  cin >> s;
+  ll a[n]; ll b[n];
+  rep(i, n){ cin>>a[i]>>b[i];}
+  ll l, r; l = n/2; r = (n+1)/2;
 
-  rep(i, n){
-    string t;
-    cin >> t;
-    bool flag = false;
-    rep(j, t.size()-s.size()+1){
-      if (s[0] != t[j]) continue;
-
-      int er=0;
-      rep(k, s.size()+1){
-        if (er==0){
-          if (s[k]!=t[j+k] && k<=s.size()-1){
-            er+=1;
-          }
-        }
-        else{
-          if (s[k-1]!=t[j+k]){
-            er++;
-            break;
-          }
-        }
+  int tmp;
+  rep(i, (1 << l)){
+    tmp=s;
+    bool flag=true;
+    rep(j, l){
+      if(i>>j&1){
+        tmp-=a[j];
       }
-      if (er <= 1){
-        flag = true;
+      else{
+        tmp+=b[j];
+        if (tmp>t){
+          flag=false;
+          break;
+        }
       }
     }
-    if (flag) cout << "valid" << endl;
-    else cout << "invalid" << endl;
+    if (flag) x.pb(tmp);
   }
+
+  rep(i, (1 << r)){
+    tmp=0;
+    int M=0;
+    rep(j, r){
+      if(i>>j&1){
+        tmp-=a[l+j];
+      }
+      else{
+        tmp+=b[l+j];
+        M = max(tmp, M);
+      }
+    }
+    y.pb(M);
+  }
+
+  sort(all(y));
+
+  ll res = 0;
+  rep(i, x.size()){
+    ll k = binary_search(x[i]);
+    res += k;
+  }
+
+  cout << res << endl;
 
   return 0;
 }

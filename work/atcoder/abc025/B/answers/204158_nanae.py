@@ -1,0 +1,25 @@
+
+def solve():
+    n, a, b = map(int, input().split())
+    pos = 0
+
+    for i in range(n):
+        s, d = input().split()
+        d = int(d)
+
+        d = min(max(a, d), b)
+
+        if s == 'East':
+            pos += d
+        else:
+            pos -= d
+
+    if pos < 0:
+        print('West', abs(pos))
+    elif pos > 0:
+        print('East', pos)
+    else:
+        print(0)
+
+if __name__ == '__main__':
+    solve()

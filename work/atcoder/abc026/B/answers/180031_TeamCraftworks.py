@@ -1,0 +1,15 @@
+import math
+
+def main():
+    area = 0.0
+    N = int(input())
+    for i,r in enumerate(reversed(sorted([float(input()) for _ in [0]*N]))):
+        if i & 1:
+            area -= r * r * math.pi
+        else:
+            area += r * r * math.pi
+    print(area)
+
+
+if __name__ == "__main__":
+    main()

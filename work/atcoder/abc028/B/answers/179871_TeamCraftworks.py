@@ -1,0 +1,6 @@
+def main():
+    s = input()
+    print(str(len([c for c in s if c == 'A']))+" "+str(len([c for c in s if c == 'B']))+" "+str(len([c for c in s if c == 'C']))+" "+str(len([c for c in s if c == 'D']))+" "+str(len([c for c in s if c == 'E']))+" "+str(len([c for c in s if c == 'F'])))
+
+if __name__ == "__main__":
+    main()

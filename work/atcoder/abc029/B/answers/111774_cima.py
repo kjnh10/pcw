@@ -1,0 +1,1 @@
+print(sum('r' in input() for _ in [0]*12))
