@@ -1,1 +1,0 @@
-print('DIFFERENT'if int(input())%1111>0else'SAME')

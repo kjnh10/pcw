@@ -1,1 +1,0 @@
-print(len([s for s in input().split('+') if not '0' in s]))
